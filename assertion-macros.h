@@ -17,7 +17,7 @@
 #include <string.h>
 
 int __assert_bail = 0;
-int __assert_failures;
+int __assert_failures = 0;
 
 /*
  * Bail at first failing assertion
