@@ -1,12 +1,18 @@
 
-test: example bail
-	./example
-	./bail
+CC ?= gcc
+CFLAGS = -std=c99 -Wall -Wextra
+SRC = assertion-macros.h
 
-example: example.c
-	$(CC) -std=c99 $^ -o $@
+test: example
+	@./example
 
-bail: bail.c
-	$(CC) -std=c99 $^ -o $@
+example: example.c $(SRC)
+	$(CC) $(CFLAGS) example.c -o $@
 
-.PHONY: example
+bail: bail.c $(SRC)
+	$(CC) $(CFLAGS) bail.c -o $@
+
+clean:
+	rm -f bail example
+
+.PHONY: test clean
