@@ -16,8 +16,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-int __assert_bail = 0;
-int __assert_failures = 0;
+static int __assert_bail = 0;
+static int __assert_failures = 0;
 
 /*
  * Bail at first failing assertion
@@ -41,7 +41,7 @@ int __assert_failures = 0;
 
 // don't clobber assert
 #ifndef assert
-#define assert assert_ok
+#  define assert assert_ok
 #endif
 
 /*
