@@ -2,15 +2,15 @@
 //
 // assertion-macros.h
 //
-// Copyright (c) 2013 Stephen Mathieson
+// Copyright (c) 2014 Stephen Mathieson
 // MIT licensed
 //
 
 
-#ifndef __ASSERTION_MACROS_H__
-#define __ASSERTION_MACROS_H__ 1
+#ifndef ASSERTION_MACROS_H
+#define ASSERTION_MACROS_H 1
 
-#define ASSERTIONS_VERSION "0.0.1"
+#define ASSERTIONS_VERSION "0.1.1"
 
 #include <stdio.h>
 #include <stdlib.h>
