@@ -1,5 +1,5 @@
 {
-  "name": "assertion-macros.h",
+  "name": "assertion-macros",
   "version": "0.0.1",
   "repo": "stephenmathieson/assertion-macros.h",
   "description": "Simple assertion macros",
