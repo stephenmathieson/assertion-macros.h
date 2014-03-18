@@ -10,7 +10,7 @@
 #ifndef ASSERTION_MACROS_H
 #define ASSERTION_MACROS_H 1
 
-#define ASSERTIONS_VERSION "0.1.1"
+#define ASSERTIONS_VERSION "0.2.0"
 
 #include <stdio.h>
 #include <stdlib.h>

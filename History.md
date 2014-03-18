@@ -1,4 +1,12 @@
 
+0.2.0 / 2014-03-18
+==================
+
+ * Add assert_null and assert_not_null
+ * Add travis
+ * Refactor examples
+ * Counters and privates should be static
+
 0.1.1 / 2014-02-26
 ==================
 
