@@ -33,8 +33,8 @@ static int __assert_failures = 0;
  * Reset the number of failed assertions
  */
 
-#define assert_reset() do { \
-  __assert_failures = 0; \
+#define assert_reset() do {                                     \
+  __assert_failures = 0;                                        \
 } while(0);
 
 // don't clobber assert
@@ -46,98 +46,130 @@ static int __assert_failures = 0;
  * Assert that `expr` evaluates to something truthy
  */
 
-#define assert_ok(expr) do { \
-  if (!(expr)) {\
-    __assert_failures++; \
-    fprintf(stderr, \
-      "Assertion error: %s (%s:%d)\n", \
-      #expr, __FILE__, __LINE__); \
-    if (__assert_bail) abort(); \
-  } \
+#define assert_ok(expr) do {                                    \
+  if (!(expr)) {                                                \
+    __assert_failures++;                                        \
+    fprintf(                                                    \
+        stderr                                                  \
+      , "Assertion error: %s (%s:%d)\n"                         \
+      , #expr                                                   \
+      , __FILE__                                                \
+      , __LINE__                                                \
+    );                                                          \
+    if (__assert_bail) abort();                                 \
+  }                                                             \
 } while(0);
 
 /*
  * Assert that `expr` is NULL
  */
 
-#define assert_null(expr) do { \
-  if ((expr) != NULL) {\
-    __assert_failures++; \
-    fprintf(stderr, \
-      "Assertion error: %s is NULL (%s:%d)\n", \
-      #expr, __FILE__, __LINE__); \
-    if (__assert_bail) abort(); \
-  } \
+#define assert_null(expr) do {                                  \
+  if ((expr) != NULL) {                                         \
+    __assert_failures++;                                        \
+    fprintf(                                                    \
+        stderr                                                  \
+      , "Assertion error: %s is NULL (%s:%d)\n"                 \
+      , #expr                                                   \
+      , __FILE__                                                \
+      , __LINE__                                                \
+    );                                                          \
+    if (__assert_bail) abort();                                 \
+  }                                                             \
 } while(0);
 
 /*
  * Assert that `expr` is not NULL
  */
 
-#define assert_not_null(expr) do { \
-  if ((expr) == NULL) {\
-    __assert_failures++; \
-    fprintf(stderr, \
-      "Assertion error: %s is not NULL (%s:%d)\n", \
-      #expr, __FILE__, __LINE__); \
-    if (__assert_bail) abort(); \
-  } \
+#define assert_not_null(expr) do {                              \
+  if ((expr) == NULL) {                                         \
+    __assert_failures++;                                        \
+    fprintf(                                                    \
+        stderr                                                  \
+      , "Assertion error: %s is not NULL (%s:%d)\n"             \
+      , #expr                                                   \
+      , __FILE__                                                \
+      , __LINE__                                                \
+    );                                                          \
+    if (__assert_bail) abort();                                 \
+  }                                                             \
 } while(0);
 
 /*
  * Assert that `a` is equal to `b`
  */
 
-#define assert_equal(a, b) do { \
-  if (a != b) {\
-    __assert_failures++; \
-    fprintf(stderr, \
-      "Assertion error: %d == %d (%s:%d)\n", \
-      a, b, __FILE__, __LINE__); \
-    if (__assert_bail) abort(); \
-  } \
+#define assert_equal(a, b) do {                                 \
+  if (a != b) {                                                 \
+    __assert_failures++;                                        \
+    fprintf(                                                    \
+        stderr                                                  \
+      , "Assertion error: %d == %d (%s:%d)\n"                   \
+      , a                                                       \
+      , b                                                       \
+      , __FILE__                                                \
+      , __LINE__                                                \
+    );                                                          \
+    if (__assert_bail) abort();                                 \
+  }                                                             \
 } while(0);
 
 /*
  * Assert that `a` is not equal to `b`
  */
 
-#define assert_not_equal(a, b) do { \
-  if (a == b) {\
-    __assert_failures++; \
-    fprintf(stderr, \
-      "Assertion error: %d != %d (%s:%d)\n", \
-      a, b, __FILE__, __LINE__); \
-    if (__assert_bail) abort(); \
-  } \
+#define assert_not_equal(a, b) do {                             \
+  if (a == b) {                                                 \
+    __assert_failures++;                                        \
+    fprintf(                                                    \
+        stderr                                                  \
+      , "Assertion error: %d != %d (%s:%d)\n"                   \
+      , a                                                       \
+      , b                                                       \
+      , __FILE__                                                \
+      , __LINE__                                                \
+    );                                                          \
+    if (__assert_bail) abort();                                 \
+  }                                                             \
 } while(0);
 
 /*
  * Assert that `a` is equal to `b`
  */
 
-#define assert_str_equal(a, b) do { \
-  if (0 != strcmp(a, b))  {\
-    __assert_failures++; \
-    fprintf(stderr, \
-      "Assertion error: \"%s\" == \"%s\" (%s:%d)\n", \
-      a, b, __FILE__, __LINE__); \
-    if (__assert_bail) abort(); \
-  } \
+#define assert_str_equal(a, b) do {                             \
+  if (0 != strcmp(a, b))  {                                     \
+    __assert_failures++;                                        \
+    fprintf(                                                    \
+        stderr                                                  \
+      , "Assertion error: \"%s\" == \"%s\" (%s:%d)\n"           \
+      , a                                                       \
+      , b                                                       \
+      , __FILE__                                                \
+      , __LINE__                                                \
+    );                                                          \
+    if (__assert_bail) abort();                                 \
+  }                                                             \
 } while(0);
 
 /*
  * Assert that `a` is not equal to `b`
  */
 
-#define assert_str_not_equal(a, b) do { \
-  if (0 == strcmp(a, b)) {\
-    __assert_failures++; \
-    fprintf(stderr, \
-      "Assertion error: \"%s\" != \"%s\" (%s:%d)\n", \
-      a, b, __FILE__, __LINE__); \
-    if (__assert_bail) abort(); \
-  } \
+#define assert_str_not_equal(a, b) do {                         \
+  if (0 == strcmp(a, b))  {                                     \
+    __assert_failures++;                                        \
+    fprintf(                                                    \
+        stderr                                                  \
+      , "Assertion error: \"%s\" != \"%s\" (%s:%d)\n"           \
+      , a                                                       \
+      , b                                                       \
+      , __FILE__                                                \
+      , __LINE__                                                \
+    );                                                          \
+    if (__assert_bail) abort();                                 \
+  }                                                             \
 } while(0);
 
 #endif
