@@ -1,4 +1,12 @@
 
+0.2.1 / 2015-12-20
+==================
+
+  * assertion-macros: cleanup whitespace
+  * assertion-macros: remove `ASSERTIONS_VERSION`
+  * assertion-macros: refactor syntax for ISO standards
+  * Makefile: simplify building binaries
+
 0.2.0 / 2014-03-18
 ==================
 
