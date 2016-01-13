@@ -31,6 +31,7 @@
 - `assert_not_equal(a, b)`
 - `assert_str_equal(a, b)`
 - `assert_str_not_equal(a, b)`
+- `assert_fail(msg, ...)`
 
 ## Example
 

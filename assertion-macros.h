@@ -172,4 +172,21 @@ static int __assert_failures = 0;
   }                                                             \
 } while(0);
 
+/*
+ * Assert failure `msg`
+ */
+
+#define assert_fail(msg, ...) do {                            \
+  __assert_failures++;                                        \
+  fprintf(stderr, "Assertion error: ");                       \
+  fprintf(stderr, msg, ##__VA_ARGS__);                        \
+  fprintf(                                                    \
+      stderr                                                  \
+    , " (%s:%d)\n"                                            \
+    , __FILE__                                                \
+    , __LINE__                                                \
+  );                                                          \
+  if (__assert_bail) abort();                                 \
+} while(0);
+
 #endif
