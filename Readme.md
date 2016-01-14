@@ -31,6 +31,8 @@
 - `assert_not_equal(a, b)`
 - `assert_str_equal(a, b)`
 - `assert_str_not_equal(a, b)`
+- `assert_strn_equal(a, b, n)`
+- `assert_strn_not_equal(a, b, n)`
 
 ## Example
 
