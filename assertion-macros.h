@@ -135,11 +135,11 @@ static int __assert_failures = 0;
 } while(0);
 
 /*
- * Assert that `a` is equal to `b`
+ * Assert that `a` is equal to `b` checking `n` chars
  */
 
-#define assert_str_equal(a, b) do {                             \
-  if (0 != strcmp(a, b))  {                                     \
+#define assert_strn_equal(a, b, n) do {                         \
+  if (0 != strncmp(a, b, n))  {                                 \
     __assert_failures++;                                        \
     fprintf(                                                    \
         stderr                                                  \
@@ -154,11 +154,18 @@ static int __assert_failures = 0;
 } while(0);
 
 /*
- * Assert that `a` is not equal to `b`
+ * Assert that `a` is equal to `b`
  */
 
-#define assert_str_not_equal(a, b) do {                         \
-  if (0 == strcmp(a, b))  {                                     \
+#define assert_str_equal(a, b)                                  \
+  assert_strn_equal(a, b, strlen(a))
+
+/*
+ * Assert that `a` is not equal to `b` checking `n` chars
+ */
+
+#define assert_strn_not_equal(a, b, n) do {                     \
+  if (0 == strncmp(a, b, n))  {                                 \
     __assert_failures++;                                        \
     fprintf(                                                    \
         stderr                                                  \
@@ -171,5 +178,12 @@ static int __assert_failures = 0;
     if (__assert_bail) abort();                                 \
   }                                                             \
 } while(0);
+
+/*
+ * Assert that `a` is not equal to `b`
+ */
+
+#define assert_str_not_equal(a, b)                              \
+  assert_strn_not_equal(a, b, strlen(a))
 
 #endif
