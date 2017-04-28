@@ -1,6 +1,6 @@
 {
   "name": "assertion-macros",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "repo": "stephenmathieson/assertion-macros.h",
   "description": "Simple assertion macros",
   "keywords": [ "assert", "assertions" ],

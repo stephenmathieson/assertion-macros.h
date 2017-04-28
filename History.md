@@ -1,4 +1,9 @@
 
+0.3.1 / 2017-04-27
+==================
+
+  * assert_str_equal: fix comparison on non-equal length strings
+
 0.3.0 / 2016-01-14
 ==================
 
