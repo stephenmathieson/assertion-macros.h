@@ -67,8 +67,9 @@ assert_str_equal_tests() {
 
   // failures
   assert_str_equal("hello world", "goodbye world");
+  assert_str_equal("hello", "hello world");
 
-  assert_equal(1, assert_failures());
+  assert_equal(2, assert_failures());
 }
 
 void
@@ -78,6 +79,7 @@ assert_str_not_equal_tests() {
 
   // passes
   assert_str_not_equal("hello world", "goodbye world");
+  assert_str_not_equal("hello", "hello world");
 
   // failures
   assert_str_not_equal("hello world", "hello world");

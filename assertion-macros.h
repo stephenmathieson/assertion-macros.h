@@ -157,8 +157,20 @@ static int __assert_failures = 0;
  * Assert that `a` is equal to `b`
  */
 
-#define assert_str_equal(a, b)                                  \
-  assert_strn_equal(a, b, strlen(a))
+ #define assert_str_equal(a, b) do {                            \
+   if (0 != strcmp(a, b))  {                                    \
+     __assert_failures++;                                       \
+     fprintf(                                                   \
+         stderr                                                 \
+       , "Assertion error: \"%s\" == \"%s\" (%s:%d)\n"          \
+       , a                                                      \
+       , b                                                      \
+       , __FILE__                                               \
+       , __LINE__                                               \
+     );                                                         \
+     if (__assert_bail) abort();                                \
+   }                                                            \
+ } while(0);
 
 /*
  * Assert that `a` is not equal to `b` checking `n` chars
@@ -183,7 +195,19 @@ static int __assert_failures = 0;
  * Assert that `a` is not equal to `b`
  */
 
-#define assert_str_not_equal(a, b)                              \
-  assert_strn_not_equal(a, b, strlen(a))
+#define assert_str_not_equal(a, b) do {                         \
+  if (0 == strcmp(a, b))  {                                     \
+    __assert_failures++;                                        \
+    fprintf(                                                    \
+        stderr                                                  \
+      , "Assertion error: \"%s\" != \"%s\" (%s:%d)\n"           \
+      , a                                                       \
+      , b                                                       \
+      , __FILE__                                                \
+      , __LINE__                                                \
+    );                                                          \
+    if (__assert_bail) abort();                                 \
+  }                                                             \
+} while(0);
 
 #endif
